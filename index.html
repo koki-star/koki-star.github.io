@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kokob Haile · Application Developer</title>
+    <meta name="description" content="Kokob Haile is an Application Development (BAS) student at North Seattle College. Open to software development internships and junior developer roles in the Seattle area or remote." />
+    <link rel="canonical" href="https://koki-star.github.io/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://koki-star.github.io/" />
+    <meta property="og:title" content="Kokob Haile · Application Developer" />
+    <meta property="og:description" content="Kokob Haile is an Application Development (BAS) student at North Seattle College. Open to software development internships and junior developer roles in the Seattle area or remote." />
+    <meta property="og:image" content="https://koki-star.github.io/og-preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kokob Haile · Application Developer" />
+    <meta name="twitter:description" content="Kokob Haile is an Application Development (BAS) student at North Seattle College. Open to software development internships and junior developer roles in the Seattle area or remote." />
+    <meta name="twitter:image" content="https://koki-star.github.io/og-preview.png" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#121310" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/photo.webp" as="image" type="image/webp" />
+
+    <!-- Set the theme before the page paints, so there is no flash. Dark is the default. -->
+    <script>
+      (function () {
+        var theme = "dark";
+        try {
+          var saved = localStorage.getItem("theme");
+          if (saved === "light" || saved === "dark") theme = saved;
+        } catch (e) {}
+        document.documentElement.setAttribute("data-theme", theme);
+        document.documentElement.classList.add("js");
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", theme === "light" ? "#f3f1ea" : "#121310");
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-nH7pVLeU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CBGopumm.css">
+  </head>
+  <body>
+    <noscript>
+      <p style="padding: 2rem">This site needs JavaScript. You can also find me on <a href="https://www.linkedin.com/in/kokob-haile/">LinkedIn</a> and <a href="https://github.com/koki-star">GitHub</a>.</p>
+    </noscript>
+    <div id="root"></div>
+  </body>
+</html>
