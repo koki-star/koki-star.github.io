@@ -49,10 +49,10 @@ export function Hero() {
             <a className="btn btn-primary" href="#projects">See my work</a>
             <ResumeLink label="Resume (PDF)" />
             <div className="hero-social">
-              <a className="btn btn-icon" href={profile.linkedin.href} rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+              <a className="btn btn-icon" href={profile.linkedin.href} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
                 <LinkedInIcon />
               </a>
-              <a className="btn btn-icon" href={profile.github.href} rel="noopener" aria-label="GitHub" title="GitHub">
+              <a className="btn btn-icon" href={profile.github.href} target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
                 <GitHubIcon />
               </a>
             </div>

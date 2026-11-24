@@ -25,7 +25,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         <span className="project-index">{String(index + 1).padStart(2, '0')}</span>
       </div>
       <h3>
-        <a className="card-link" href={project.href} rel="noopener">
+        <a className="card-link" href={project.href} target="_blank" rel="noopener noreferrer">
           {project.title}
           <span className="card-arrow" aria-hidden="true">↗</span>
         </a>

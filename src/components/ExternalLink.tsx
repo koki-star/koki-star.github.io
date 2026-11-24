@@ -4,7 +4,7 @@ import type { Link } from '../types'
 /** A link with extra words for screen readers. */
 export function TextLink({ link, className }: { link: Link; className?: string }) {
   return (
-    <a className={className} href={link.href} rel="noopener">
+    <a className={className} href={link.href} target="_blank" rel="noopener noreferrer">
       {link.label}
       {link.srLabel && <span className="sr-only">{link.srLabel}</span>}
     </a>

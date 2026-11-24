@@ -16,7 +16,7 @@ export function Resume() {
           </div>
           <div className="resume-actions">
             <ResumeLink label="Download resume (PDF)" primary />
-            <a className="btn btn-ghost" href={profile.linkedin.href} rel="noopener">See LinkedIn</a>
+            <a className="btn btn-ghost" href={profile.linkedin.href} target="_blank" rel="noopener noreferrer">See LinkedIn</a>
           </div>
         </div>
       </div>

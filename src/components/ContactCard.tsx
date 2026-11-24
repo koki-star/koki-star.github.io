@@ -28,16 +28,16 @@ export function ContactCard() {
           {email ? (
             <a className="email-address" href={`mailto:${email}`} aria-describedby="email-label">{email}</a>
           ) : (
-            <a className="email-address" href={profile.linkedin.href} rel="noopener" aria-describedby="email-label">
+            <a className="email-address" href={profile.linkedin.href} target="_blank" rel="noopener noreferrer" aria-describedby="email-label">
               Message me on LinkedIn
             </a>
           )}
         </ContactRow>
         <ContactRow icon={<LinkedInIcon />} label="LinkedIn" isLink>
-          <a className="row-link" href={profile.linkedin.href} rel="noopener">{profile.linkedin.display}</a>
+          <a className="row-link" href={profile.linkedin.href} target="_blank" rel="noopener noreferrer">{profile.linkedin.display}</a>
         </ContactRow>
         <ContactRow icon={<GitHubIcon />} label="GitHub" isLink>
-          <a className="row-link" href={profile.github.href} rel="noopener">{profile.github.display}</a>
+          <a className="row-link" href={profile.github.href} target="_blank" rel="noopener noreferrer">{profile.github.display}</a>
         </ContactRow>
         <ContactRow icon={<PinIcon />} label="Location">
           <span className="contact-plain">{profile.location}</span>
