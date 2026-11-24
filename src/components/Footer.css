@@ -1,0 +1,18 @@
+/* ---------- Footer ---------- */
+.site-footer { padding-block: 2rem 2.5rem; }
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .75rem 2rem;
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+.footer-inner a { text-decoration: none; transition: color var(--fast) var(--ease); }
+
+.footer-inner a:hover,
+.footer-inner a:focus-visible { color: var(--accent); }
+
+.footer-links { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }

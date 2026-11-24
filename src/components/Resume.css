@@ -1,0 +1,17 @@
+/* ---------- Resume ---------- */
+.resume-card {
+  display: grid;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+}
+
+.resume-text { margin-top: .5rem; max-width: 32rem; font-size: 1.1rem; }
+
+.resume-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+
+@media (min-width: 720px) {
+  .resume-card { grid-template-columns: 1fr auto; align-items: center; }
+}

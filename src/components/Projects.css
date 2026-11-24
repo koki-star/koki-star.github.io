@@ -1,0 +1,169 @@
+/* ---------- Projects ---------- */
+.projects {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.project {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+  padding: 1.6rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--med) var(--ease), transform var(--med) var(--ease), box-shadow var(--med) var(--ease);
+}
+
+.project::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0;
+  width: 3rem; height: 3px;
+  background: var(--accent);
+  transition: width .45s var(--ease);
+}
+
+.project:hover,
+.project:focus-within {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.project:hover::before,
+.project:focus-within::before { width: 100%; }
+
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.project-index { font-family: var(--font-mono); font-weight: 500; letter-spacing: 0; color: var(--accent); }
+
+.project h3 { font-size: 1.4rem; letter-spacing: -.02em; }
+
+/* Screenshot at the top of a card. Clicks pass through to the card link. */
+.project-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius-lg) - 4px);
+  background: var(--surface-2, var(--bg));
+  pointer-events: none;
+}
+
+.project-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform var(--med) var(--ease);
+}
+
+.project:hover .project-media img,
+.project:focus-within .project-media img { transform: scale(1.03); }
+
+/* The title link covers the whole card, so the card is clickable */
+.card-link { text-decoration: none; }
+
+.card-link::after { content: ""; position: absolute; inset: 0; z-index: 0; border-radius: inherit; }
+
+.card-link:focus-visible { outline: none; }
+
+.project:has(.card-link:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.card-arrow {
+  display: inline-block;
+  margin-left: .4rem;
+  font-weight: 400;
+  color: var(--accent);
+  transition: transform var(--med) var(--ease);
+}
+
+.project:hover .card-arrow,
+.project:focus-within .card-arrow { transform: translate(4px, -4px); }
+
+.project:hover .card-link { color: var(--text); }
+
+.project p { font-size: .98rem; }
+
+.project-built { color: var(--muted); }
+
+.project-built .label {
+  display: block;
+  margin-bottom: .25rem;
+  color: var(--text);
+}
+
+.project .tags { margin-top: auto; padding-top: .4rem; }
+
+.project-links {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem 1.25rem;
+  padding-top: .9rem;
+  border-top: 1px solid var(--line);
+}
+
+.project-links a {
+  position: relative;
+  font-size: .9rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding-block: .35rem;
+}
+
+.project-links a::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: .3rem;
+  font-weight: 400;
+  color: var(--accent);
+  transition: transform var(--fast) var(--ease);
+}
+
+.project-links a:hover,
+.project-links a:focus-visible { color: var(--accent); }
+
+.project-links a:hover::after,
+.project-links a:focus-visible::after { transform: translate(3px, -3px); }
+
+.entry .project-links { border-top: 0; padding-top: .25rem; }
+
+/* Cards keep their own hover transform after they are visible */
+.js .project.reveal.is-visible { transition: opacity .6s var(--ease), transform var(--med) var(--ease), border-color var(--med) var(--ease), box-shadow var(--med) var(--ease); }
+
+.js .project.reveal.is-visible:hover,
+.js .project.reveal.is-visible:focus-within { transform: translateY(-4px); }
+
+@media (min-width: 720px) {
+  .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-wide { grid-column: 1 / -1; }
+  .project-wide .project-built,
+  .project-wide > p { max-width: 46rem; }
+
+  /* A wide card with a screenshot: text on the left, image on the right */
+  .project-wide.has-media {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 24rem);
+    column-gap: 2rem;
+    row-gap: .9rem;
+    align-content: start;
+  }
+  .project-wide.has-media > * { grid-column: 1; }
+  .project-wide.has-media > .project-media { grid-column: 2; grid-row: 1 / span 6; align-self: start; }
+}

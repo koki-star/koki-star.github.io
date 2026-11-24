@@ -1,0 +1,29 @@
+/* Loaded last so these rules win: reduced motion and print. */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+  .js .reveal { opacity: 1; transform: none; }
+  .btn:hover, .btn:focus-visible,
+  .project:hover, .project:focus-within,
+  .js .project.reveal.is-visible:hover,
+  .js .project.reveal.is-visible:focus-within,
+  .project:hover .project-media img,
+  .project:focus-within .project-media img,
+  .tags-lg li:hover,
+  .portrait:hover::before,
+  .portrait:hover .portrait-photo,
+  .contact-row:hover .row-arrow,
+  .contact-row:focus-within .row-arrow { transform: none; }
+}
+
+@media print {
+  body::before, .site-header, .theme-toggle, .skip-link { display: none; }
+  .js .reveal { opacity: 1; transform: none; }
+}

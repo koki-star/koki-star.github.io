@@ -1,0 +1,46 @@
+/* ---------- Timeline ---------- */
+.timeline { border-left: 1px solid var(--line-strong); }
+
+.entry {
+  position: relative;
+  display: grid;
+  gap: .5rem;
+  padding: 0 0 2.5rem 1.5rem;
+}
+
+.entry:last-child { padding-bottom: 0; }
+
+.entry::before {
+  content: "";
+  position: absolute;
+  left: -5px; top: .45rem;
+  width: 9px; height: 9px;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  transition: background-color var(--fast) var(--ease);
+}
+
+.entry:hover::before { background: var(--accent); }
+
+.entry-edu::before { border-radius: 2px; }
+
+.entry-when {
+  font-size: .85rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+}
+
+.entry-body { display: grid; gap: .55rem; max-width: 40rem; }
+
+.entry h3 { font-size: 1.2rem; letter-spacing: -.01em; }
+
+.entry-where { font-size: .88rem; color: var(--muted); }
+
+.entry-body > p:not(.entry-where) { font-size: .98rem; }
+
+@media (min-width: 720px) {
+  .entry { grid-template-columns: 9.5rem 1fr; gap: 1.5rem; padding-left: 2rem; }
+  .entry-when { padding-top: .15rem; }
+}

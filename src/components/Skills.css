@@ -1,0 +1,26 @@
+/* ---------- Tags (the only place with monospace, besides code and numbers) ---------- */
+.tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+
+.tags li {
+  padding: .22rem .55rem;
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  transition: border-color var(--fast) var(--ease), color var(--fast) var(--ease), background-color var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+
+.tags-lg li { font-size: .8rem; padding: .38rem .75rem; color: var(--text); background: var(--surface); }
+
+.tags-lg li:hover { border-color: var(--accent); background: var(--accent-soft); transform: translateY(-1px); }
+
+/* ---------- Skills ---------- */
+.skills { display: grid; gap: 1.75rem; }
+
+.skill-group .label { display: block; margin-bottom: .75rem; }
+
+@media (min-width: 720px) {
+  .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 2.5rem; }
+}

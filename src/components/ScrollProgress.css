@@ -1,0 +1,26 @@
+/* ---------- Scroll progress bar ----------
+   Uses CSS scroll-driven animations. Browsers without support,
+   or people who ask for reduced motion, simply do not see the bar. */
+.scroll-progress { display: none; }
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-progress {
+      display: block;
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 60;
+      height: 3px;
+      background: var(--accent);
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      animation: progress-grow linear both;
+      animation-timeline: scroll(root block);
+      pointer-events: none;
+    }
+  }
+}
+
+@keyframes progress-grow {
+  to { transform: scaleX(1); }
+}

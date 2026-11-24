@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build output and caches
+dist/
+.vite/
+coverage/
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db

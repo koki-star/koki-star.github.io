@@ -1,0 +1,168 @@
+/* ---------- Hero ---------- */
+.hero {
+  padding-block: clamp(3rem, 8vw, 6.5rem) clamp(3rem, 7vw, 5.5rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.hero-name {
+  font-size: clamp(4.4rem, 20vw, 10.5rem);
+  font-weight: 600;
+  line-height: .88;
+  letter-spacing: -.045em;
+}
+
+/* Name animation: each letter rises in, one after another, one time on load */
+.name-word { display: inline-block; white-space: nowrap; }
+.name-letter { display: inline-block; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .name-letter {
+    animation: letter-rise .7s var(--ease) backwards;
+    animation-delay: calc(var(--i) * 40ms + 80ms);
+  }
+}
+
+@keyframes letter-rise {
+  from { opacity: 0; transform: translateY(.35em); filter: blur(6px); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+
+.hero-role {
+  margin-top: 1.75rem;
+  max-width: 36rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  line-height: 1.45;
+}
+
+.hero-goal {
+  margin-top: .9rem;
+  max-width: 36rem;
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.hero-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 1rem 2rem;
+  max-width: 40rem;
+  margin: 2rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.hero-meta dt {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hero-meta dd { margin: .25rem 0 0; font-size: .98rem; }
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 2.25rem;
+}
+
+/* LinkedIn and GitHub as small square icon buttons */
+.hero-social { display: flex; gap: .5rem; }
+
+.btn-icon {
+  width: 2.9rem;
+  padding: 0;
+  background: transparent;
+}
+
+.btn-icon svg { width: 20px; height: 20px; }
+
+.btn-icon[href^="http"]::after { content: none; }
+
+.btn-icon:hover,
+.btn-icon:focus-visible { color: var(--accent); }
+
+/* Portrait: circle photo with a thin accent ring and a small gap */
+.portrait {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 21rem;
+  margin: 0;
+  padding: 12px;
+}
+
+.portrait::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  transition: transform .5s var(--ease), border-color var(--med) var(--ease);
+}
+
+.portrait-frame {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--surface-2);
+}
+
+.portrait-frame picture { display: block; width: 100%; height: 100%; }
+
+.portrait-photo {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+  transition: transform .7s var(--ease);
+}
+
+/* A very light dim in dark mode so the bright sky does not glare. Skin tones stay natural. */
+[data-theme="dark"] .portrait-photo { filter: brightness(.94); }
+
+/* Hover: the gap grows a little and the photo zooms in slowly */
+.portrait:hover::before { transform: scale(1.035); }
+
+.portrait:hover .portrait-photo { transform: scale(1.04); }
+
+/* Photo reveal on page load: the circle opens from the middle, then the ring settles in */
+@media (prefers-reduced-motion: no-preference) {
+  .portrait-frame { animation: lens-open 1s var(--ease) .15s backwards; }
+  .portrait::before { animation: ring-in .9s var(--ease) .5s backwards; }
+}
+
+@keyframes lens-open {
+  from { clip-path: circle(0% at 50% 50%); }
+  to   { clip-path: circle(50% at 50% 50%); }
+}
+
+@keyframes ring-in {
+  from { opacity: 0; transform: scale(.9); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 719px) {
+  .hero-actions > .btn { flex: 1 1 calc(50% - .75rem); }
+  .portrait { max-width: 16rem; margin-inline: auto; }
+}
+
+@media (min-width: 720px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(13rem, 17rem); }
+  .portrait { justify-self: end; }
+}
+
+@media (min-width: 1080px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr) 20rem; }
+}
