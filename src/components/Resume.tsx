@@ -7,7 +7,7 @@ import './Resume.css'
 export function Resume() {
   const { ref, revealClass } = useInView<HTMLDivElement>()
   return (
-    <Section id="resume" num="05" title="Resume">
+    <Section id="resume" title="Resume">
       <div className="section-body">
         <div ref={ref} className={`resume-card ${revealClass}`}>
           <div>

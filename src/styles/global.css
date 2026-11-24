@@ -233,15 +233,7 @@ main:focus { outline: none; }
 
 .section-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; }
 
-.section-num {
-  font-family: var(--font-mono);
-  font-size: .75rem;
-  font-weight: 500;
-  color: var(--accent);
-}
-
 .section-head h2 {
-  margin-top: .5rem;
   font-size: clamp(2rem, 4.5vw, 3rem);
   letter-spacing: -.03em;
 }
@@ -282,23 +274,12 @@ main:focus { outline: none; }
       animation-timeline: --section;
       animation-range: entry 5% entry 70%;
     }
-
-    .section-num {
-      animation: num-rise linear both;
-      animation-timeline: --section;
-      animation-range: entry 0% entry 50%;
-    }
   }
 }
 
 @keyframes title-wipe {
   from { clip-path: inset(0 100% 0 0); transform: translateX(-12px); opacity: .2; }
   to   { clip-path: inset(0 -2% 0 0); transform: none; opacity: 1; }
-}
-
-@keyframes num-rise {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: none; }
 }
 
 @media (min-width: 720px) {

@@ -7,7 +7,7 @@ import './Contact.css'
 export function Contact() {
   const { ref, revealClass } = useInView<HTMLParagraphElement>()
   return (
-    <Section id="contact" num="06" title="Contact" className="section-contact">
+    <Section id="contact" title="Contact" className="section-contact">
       <div className="section-body">
         <p ref={ref} className={`contact-lead ${revealClass}`}>{profile.contactLead}</p>
         <ContactCard />

@@ -37,19 +37,6 @@
 .project:hover::before,
 .project:focus-within::before { width: 100%; }
 
-.project-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  font-size: .72rem;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.project-index { font-family: var(--font-mono); font-weight: 500; letter-spacing: 0; color: var(--accent); }
-
 .project h3 { font-size: 1.4rem; letter-spacing: -.02em; }
 
 /* Screenshot at the top of a card. Clicks pass through to the card link. */

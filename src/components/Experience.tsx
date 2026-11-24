@@ -5,7 +5,7 @@ import './Experience.css'
 
 export function Experience() {
   return (
-    <Section id="experience" num="04" title="Experience and education">
+    <Section id="experience" title="Experience and education">
       <div className="section-body">
         <ol className="timeline">
           {experience.map((entry) => (

@@ -23,7 +23,6 @@ export function Skills() {
   return (
     <Section
       id="skills"
-      num="03"
       title="Skills"
       note="Tools I have used in real projects. Each one is in my code on GitHub."
     >

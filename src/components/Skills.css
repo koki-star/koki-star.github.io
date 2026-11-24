@@ -1,4 +1,4 @@
-/* ---------- Tags (the only place with monospace, besides code and numbers) ---------- */
+/* ---------- Tags (the only place with monospace, besides code) ---------- */
 .tags { display: flex; flex-wrap: wrap; gap: .4rem; }
 
 .tags li {

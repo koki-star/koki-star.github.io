@@ -7,14 +7,13 @@ export function Projects() {
   return (
     <Section
       id="projects"
-      num="02"
       title="Projects"
       note="Selected web apps and open-source work. Each repository includes a README and source code."
     >
       <div className="section-body">
         <ol className="projects">
-          {projects.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
           ))}
         </ol>
       </div>

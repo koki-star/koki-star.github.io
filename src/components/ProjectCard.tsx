@@ -11,7 +11,7 @@ function Rich({ text }: { text: RichText }) {
 }
 
 /** One project card. The title link covers the whole card, so the card is clickable. */
-export function ProjectCard({ project, index }: { project: Project; index: number }) {
+export function ProjectCard({ project }: { project: Project }) {
   const { ref, revealClass } = useInView<HTMLLIElement>()
   const classes = ['project', project.wide ? 'project-wide' : '', project.image ? 'has-media' : '', revealClass].filter(Boolean).join(' ')
   return (
@@ -21,9 +21,6 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           <img src={project.image.src} alt={project.image.alt} width={1200} height={750} loading="lazy" decoding="async" />
         </div>
       )}
-      <div className="project-top">
-        <span className="project-index">{String(index + 1).padStart(2, '0')}</span>
-      </div>
       <h3>
         <a className="card-link" href={project.href} target="_blank" rel="noopener noreferrer">
           {project.title}
